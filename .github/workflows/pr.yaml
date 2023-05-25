@@ -8,7 +8,7 @@ jobs:
   Testing:
     runs-on: ubuntu-latest
     env: 
-      ENVIRONMENT: ${{ github.event.pull_request.base.ref }}
+      ENVIRONMENT: ${{ github.base.ref }}
 
 
     steps:
