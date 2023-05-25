@@ -4,6 +4,7 @@ on:
       - dev
       - sit 
 
+
 env:
   ENVIRONMENT: dev
 
@@ -12,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
   #  env: 
    #   ENVIRONMENT: ${{ github.ref_name }}
+
 
     steps:
     - name: Dump GitHub context
@@ -29,7 +31,6 @@ jobs:
       runs-on: ubuntu-latest
     #  env: 
      #   ENVIRONMENT: ${{ github.ref_name }}
-   
       steps: 
         - name: test get env
           run: |
