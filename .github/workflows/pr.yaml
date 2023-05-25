@@ -9,7 +9,7 @@ jobs:
   Testing:
     runs-on: ubuntu-latest
     env: 
-      ENVIRONMENT: ${{ github.ref }}
+      ENVIRONMENT: ${{ github.ref.split('/').last }}
 
 
     steps:
@@ -27,7 +27,7 @@ jobs:
   AKS-Deployment:
       runs-on: ubuntu-latest
       env: 
-        ENVIRONMENT: ${{ github.head_ref }}
+        ENVIRONMENT: ${{ github.ref.split('/').last }}
    
       steps: 
         - name: test get env
