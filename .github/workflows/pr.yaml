@@ -22,7 +22,7 @@ jobs:
         echo "${{ github.base_ref }}"  
 
 
-    AKS-Deployment:
+  AKS-Deployment:
       runs-on: ubuntu-latest
       steps: 
         - name: test get env
