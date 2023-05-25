@@ -8,7 +8,7 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env: 
-      ENVIRONMENT: ${{ github.head_ref }}
+      ENVIRONMENT: ${{ github.base_ref }}
 
     steps:
     - name: Dump GitHub context
