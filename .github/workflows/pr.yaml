@@ -2,6 +2,10 @@ on:
   pull_request:
     types:
       - closed
+    branches:
+      - sit
+    paths: 
+      - '/**'
 
 jobs:
   if_merged:
