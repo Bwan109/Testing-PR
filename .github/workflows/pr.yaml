@@ -32,4 +32,3 @@ jobs:
         - name: test get env
           run: |
             echo $ENVIRONMENT
-            echo "${{ github.base_ref }}"
