@@ -1,21 +1,16 @@
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
-      - sit
-    paths: 
-      - '/*'
+      - feature
+
+
 
 
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
+  Testing:
     runs-on: ubuntu-latest
     env: 
       ENVIRONMENT: ${{ github.head_ref }}
-   
-
 
     steps:
     - name: Dump GitHub context
@@ -25,8 +20,6 @@ jobs:
         echo $ENVIRONMENT
 
     - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
       run: | 
         echo $ENVIRONMENT
 
