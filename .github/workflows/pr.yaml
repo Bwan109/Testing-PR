@@ -13,4 +13,4 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: | 
         echo "$GITHUB_CONTEXT"
-        echo "${{ github.base_ref }}"
+        echo "${{ github.base_ref }}"  # THis base_ref will be our enviroment
