@@ -5,12 +5,15 @@ on:
       - sit 
 
 
+env:
+  ENVIRONMENT: dev
 
 jobs:
   Testing:
     runs-on: ubuntu-latest
-    env: 
-      ENVIRONMENT: ${{ github.ref_name }}
+  #  env: 
+   #   ENVIRONMENT: ${{ github.ref_name }}
+
 
     steps:
     - name: Dump GitHub context
@@ -26,9 +29,8 @@ jobs:
 
   AKS-Deployment:
       runs-on: ubuntu-latest
-      env: 
-        ENVIRONMENT: ${{ github.ref_name }}
-   
+    #  env: 
+     #   ENVIRONMENT: ${{ github.ref_name }}
       steps: 
         - name: test get env
           run: |
