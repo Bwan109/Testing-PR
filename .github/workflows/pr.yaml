@@ -2,13 +2,14 @@ on:
   push:
     branches:
       - dev
+      - sit 
 
 
 jobs:
   Testing:
     runs-on: ubuntu-latest
     env: 
-      ENVIRONMENT: ${{ github.base.ref }}
+      ENVIRONMENT: ${{ github.ref }}
 
 
     steps:
