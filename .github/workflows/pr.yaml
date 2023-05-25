@@ -3,14 +3,11 @@ on:
     branches:
       - feature
 
-
-
-
 jobs:
   Testing:
     runs-on: ubuntu-latest
     env: 
-      ENVIRONMENT: ${{ github.head_ref }}
+      ENVIRONMENT: ${{ github.event.pull_request.base.ref }}
 
     steps:
     - name: Dump GitHub context
