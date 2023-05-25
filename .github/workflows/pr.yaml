@@ -13,4 +13,19 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: | 
         echo "$GITHUB_CONTEXT"
-        echo "${{ github.base_ref }}"  # THis base_ref will be our enviroment
+        echo "${{ github.base_ref }}"  
+
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: | 
+        echo "${{ github.base_ref }}"  
+
+
+    AKS-Deployment:
+      runs-on: ubuntu-latest
+      steps: 
+        - name: test get env
+          run: |
+            echo "${{ github.head_ref }}"
+            echo "${{ github.base_ref }}"
