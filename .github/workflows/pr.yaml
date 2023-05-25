@@ -7,19 +7,21 @@ jobs:
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    env: 
+      ENVIRONMENT: ${{ github.head_ref }}
+
     steps:
     - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
+      #env:
+       # GITHUB_CONTEXT: ${{ toJson(github) }}
       run: | 
-        echo "$GITHUB_CONTEXT"
-        echo "${{ github.base_ref }}"  
+        echo $ENVIRONMENT
 
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: | 
-        echo "${{ github.base_ref }}"  
+        echo $ENVIRONMENT
 
 
   AKS-Deployment:
@@ -27,5 +29,5 @@ jobs:
       steps: 
         - name: test get env
           run: |
-            echo "${{ github.head_ref }}"
+            echo $ENVIRONMENT
             echo "${{ github.base_ref }}"
