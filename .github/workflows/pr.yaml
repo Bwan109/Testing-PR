@@ -1,16 +1,37 @@
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - dev
+      - sit 
+
+
+env:
+  ENVIRONMENT: dev
 
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
+  Testing:
     runs-on: ubuntu-latest
+  #  env: 
+   #   ENVIRONMENT: ${{ github.ref_name }}
+
+
     steps:
     - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
+      #env:
+       # GITHUB_CONTEXT: ${{ toJson(github) }}
       run: | 
-        echo "$GITHUB_CONTEXT"
-        echo "${{ github.base_ref }}"
+        echo $ENVIRONMENT
+
+    - name: Dump GitHub context
+      run: | 
+        echo $ENVIRONMENT
+
+
+  AKS-Deployment:
+      runs-on: ubuntu-latest
+    #  env: 
+     #   ENVIRONMENT: ${{ github.ref_name }}
+      steps: 
+        - name: test get env
+          run: |
+            echo $ENVIRONMENT
